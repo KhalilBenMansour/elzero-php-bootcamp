@@ -5,8 +5,10 @@
  */
 
 /**
- * assign1
+ * assign 1
+ * you can use content=<?php echo "'$subject'" ?> or content="<?php echo $name; ?>"
  */
+
 $subject="Elzero Courses";
 ?>
 
@@ -16,7 +18,7 @@ $subject="Elzero Courses";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=<?php echo "'$subject'" ?>>
+    <meta name="description" content=<?php echo "'$subject'" ?>> 
     <title>Welcome To <?php echo $subject?></title>
   </head>
   <body>
@@ -30,4 +32,74 @@ $subject="Elzero Courses";
 <?php
 echo '<br>**********************<br>';
 
+/*********************************************************** */
+/**
+ * assign 2
+ */
+$name = "elzero";
+$$name = "Web";
+echo $$name;
+echo $elzero;
+echo "{$$name}";
+echo "$elzero";
+echo <<<"task"
+$elzero
+task ;
+echo <<<"task"
+{$$name}
+task ;
+
+echo '<br>**********************<br>';
+
+/*********************************************************** */
+/**
+ * assign 3
+ */
+$a = 200;
+$b = &$a;
+$a = 100;
+
+echo $b; // 100
+echo '<br>**********************<br>';
+/*********************************************************** */
+/**
+ * assign 4
+ */
+echo '<pre>';
+echo  $_SERVER["DOCUMENT_ROOT"];
+echo '<br>';
+echo  $_SERVER["SERVER_NAME"];
+echo '<br>';
+echo  $_SERVER["SystemRoot"];
+echo '<br>';
+echo  $_SERVER["OPENSSL_CONF"];
+echo '</pre>';
+echo '<br>**********************<br>';
+/*********************************************************** */
+/**
+ * assign 5
+ */
+/* 10 reserved keywords in PHP
+clone
+break
+function
+final
+include
+switch
+use
+const 
+require
+public
+*/
+echo '<br>**********************<br>';
+/*********************************************************** */
+/**
+ * assign 6
+ */
+echo __LINE__;
+echo "<br>";
+echo __FILE__;
+echo "<br>";
+echo __DIR__;
+echo '<br>**********************<br>';
 /*********************************************************** */
