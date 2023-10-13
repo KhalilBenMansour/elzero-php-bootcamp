@@ -88,26 +88,98 @@ echo '<br>**********************<br>';
 /** 
  *  assign 5
 */
+function check_status($a, $b, $c) {
+  $name="";
+  $age=0;
+  $status=false;
+  foreach(func_get_args() as $arg){
+    if(gettype($arg)==="string"){
+      $name=$arg;
+    }elseif(gettype($arg)==="integer"){
+       $age=$arg ;
+    }else {
+      $status=$arg;
+    }
+  }
+    return "Hello $name, Your Age Is $age, ".($status? "You Are":"You Are Not")." Available For Hire<br>";
+  
+}
 
+// Needed Output
+echo check_status("Osama", 38, true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+echo check_status(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+echo check_status(true, 38, "Osama"); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+echo check_status(false, "Osama", 38); // "Hello Osama, Your Age Is 38, You Are Not Available For Hire"
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 6
 */
+function calculate($numOne,$numTwo,$operation="add"){
+switch ($operation) {
+  case 'a':
+  case 'add':
+    return $numOne + $numTwo ."<br>";
+    break;
+  case 's':
+  case 'subtract':
+    return $numOne - $numTwo ."<br>";
+    break;
+  case 'm':
+  case 'multiply':
+    return $numOne * $numTwo ."<br>";
+    break;
+  
+  default:
+    return "Unkown Operation"."<br>";
+    break;
+}
+}
+// Needed Output
+echo calculate(10, 20); // 30
+echo calculate(10, 20, "a"); // 30
+echo calculate(10, 20, "s"); // -10
+echo calculate(10, 20, "subtract"); // -10
+echo calculate(10, 20, "multiply"); // 200
+echo calculate(10, 20, "m"); // 200
+
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 7
 */
+function calculated(int $num_one, int $num_two):float {
+  return $num_one + $num_two;
+}
+
+echo calculated(20, 10); // 30
+echo gettype(calculated(20, 10)); // Double
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 8
 */
+$message = "Hello";
+//method using anonymous function
+$$message=function ($name) use ($message){
+  return "$message $name";
+};
+
+//method using arrow function
+$$message=fn ($name)=> "$message $name";
+
+
+echo $Hello("Osama"); // Hello Osama
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 9
 */
+$greet=function($name){
+  return"Greetings $name<br>";};
+$greet=fn($name)=>"Greetings $name<br>";
+
+// Needed Output
+echo $greet("Osama"); // Greetings Osama
 echo '<br>**********************<br>';
 /********************************************************** */
