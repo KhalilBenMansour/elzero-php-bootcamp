@@ -129,41 +129,191 @@ echo '<br>**********************<br>';
 /** 
  *  assign 7
 */
+$names = ["Osama", "Ahmed", "Sayed", "Mahmoud", "Ali"];
+
+next($names);
+next($names);
+
+echo current($names) . "<br>"; // "Sayed"
+
+end($names);
+
+echo current($names) . "<br>"; // "Ali"
+
+reset($names);
+
+echo current($names) . "<br>"; // "Osama"
+
+end($names);
+prev($names);
+
+echo current($names) . "<br>"; // "Mahmoud"
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 8
 */
+// method 1
+$chars = ["A", "B", "C"];
+
+$chars[]="D";
+echo '<pre>';
+print_r($chars);
+echo '</pre>';
+// method 2
+$chars = ["A", "B", "C"];
+
+echo '<pre>';
+print_r(array_replace($chars, [3=>"D"]));
+echo '</pre>';
+// method 3
+$chars = ["A", "B", "C"];
+
+echo '<pre>';
+print_r(array_merge($chars, ["D"]));
+echo '</pre>';
+// method 4
+$chars = ["A", "B", "C"];
+
+array_push($chars,"D");
+echo '<pre>';
+print_r($chars);
+echo '</pre>';
+// method 5
+$chars = ["A", "B", "C"];
+
+echo '<pre>';
+print_r(array_pad($chars,4,"D"));
+echo '</pre>';
+// method 6
+$chars = ["A", "B", "C"];
+
+array_splice($chars,3,0,"D");
+echo '<pre>';
+print_r($chars);
+echo '</pre>';
+// Output
+// Array
+// (
+//   [0] => A
+//   [1] => B
+//   [2] => C
+//   [3] => D
+// )
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 9
 */
+$nums = [1, 2, 3, 4, 5, 6];
+
+echo '<pre>';
+print_r(array_slice($nums,-5,-2));
+echo '</pre>';
+// Output
+// Array
+// (
+//   [0] => 2
+//   [1] => 3
+//   [2] => 4
+// )
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 10
 */
+$mix = [1, 2, 3, "A", "B", "C", 7, 8, 9];
+$nums = [4, 5, 6];
+
+array_splice($mix,count($nums),count($nums),$nums);
+
+echo '<pre>';
+print_r($mix);
+echo '</pre>';
+// Output
+// Array
+// (
+//   [0] => 1
+//   [1] => 2
+//   [2] => 3
+//   [3] => 4
+//   [4] => 5
+//   [5] => 6
+//   [6] => 7
+//   [7] => 8
+//   [8] => 9
+// )
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 11
 */
+$arr = ["A", "B", "C", "D", "E"];
+
+function custom_count($array){
+$count=0;
+while(!empty($array[$count])){
+  $count++;
+}
+return $count;
+}
+echo custom_count($arr);
+// Output 5
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 12
 */
+$nums = [11, 2, 10, 7, 20, 50];
+
+function custom_array_sum($array){
+  $sum=0;
+  // I use cout because I implement it already
+  for($i=0;$i<count($array);$i++){
+    $sum+=$array[$i];
+  }
+return $sum;
+}
+echo custom_array_sum($nums);
+// Output 100
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 13
 */
+$nums = [10, 100, -20, 50, 30];
+
+function max_array($array){
+  $max=$array[0];
+  // I use cout because I implement it already
+  for($i=1;$i<count($array);$i++){
+    if($array[$i]>$max){
+      $max=$array[$i];
+    }
+  }
+return $max;
+}
+echo max_array($nums);
+// Output 100
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 14
 */
+$nums = [10, 100, -20, 50, 30];
+
+function min_array($array){
+  $min=$array[0];
+  // I use cout because I implement it already
+  for($i=1;$i<count($array);$i++){
+    if($array[$i]<$min){
+      $min=$array[$i];
+    }
+  }
+return $min;
+}
+echo min_array($nums);
+// Output -20
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
