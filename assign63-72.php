@@ -319,15 +319,85 @@ echo '<br>**********************<br>';
 /** 
  *  assign 15
 */
+$chars = ["o", "r", "e", "z", "l", "E"];
+
+function reverse_arr_to_string($chars){
+  $str="";
+  $i=count($chars);
+  // I use count because I implemented it already
+  while($i>0){
+    $i--;
+    $str.=$chars[$i];
+  }
+return $str;
+}
+echo reverse_arr_to_string($chars);
+// Output "Elzero"
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 16
 */
+$mix = ["A", "C", "B", 1, 100, 3, 2, 6, 5, 7];
+
+function prime_int(array $arr)
+{
+  $items = [];
+  foreach($arr as $item) {
+    if (gettype($item) !== "string" && $item % 2 !== 0) $items[] = $item;
+  }
+  sort($items);
+  return $items;
+}
+
+echo "<pre>";
+print_r(prime_int($mix));
+echo "</pre>";
+// Output
+// Array
+// (
+//   [0] => 1
+//   [1] => 3
+//   [2] => 5
+//   [3] => 7
+// )
 echo '<br>**********************<br>';
 /********************************************************** */
 /** 
  *  assign 17
 */
+$nums = [1, 2, 3, 4, 5, 6];
+
+function random_arr($arr){
+  $array=[];
+  $random=rand($arr[0],$arr[count($arr)-1]);
+  
+  for($i=0;$i<count($arr);$i++){
+    while(in_array($random,$array)){
+      $random=rand($arr[0],$arr[count($arr)-1]);
+    };
+    $array[]=$random;
+  }
+  return $array;
+}
+
+echo "<pre>";
+print_r(random_arr($nums));
+echo "</pre>";
+// Output
+// Every Time The Array Elements Will Be Shuffled
+echo '<br>**********************<br>';
+/********************************************************** */
+/** 
+ *  assign 18
+*/
+$title = "E&z\$r0 W\$b Sch00&";
+echo $title."<br>";
+
+echo str_replace(["&", "$","0"], ["l", "e","o"], $title, $r)."<br>"; 
+echo  $r;
+// Output
+// "Elzero Web School"
+// 7
 echo '<br>**********************<br>';
 /********************************************************** */
