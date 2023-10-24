@@ -20,7 +20,6 @@ echo '<br>***********************************************<br>';
 /** 
  *  assign 3
 */
-
 if(!file_exists("Programming/PHP")){
     mkdir("Programming/PHP", 0711,True);
 }
@@ -35,6 +34,28 @@ echo '<br>***********************************************<br>';
 /** 
  *  assign 4
 */
+function change_permissions(string $filename){
+    if(pathinfo($filename,PATHINFO_EXTENSION)){
+        if(pathinfo($filename,PATHINFO_EXTENSION)==="txt"){
+            clearstatcache();
+            chmod($filename, 0700);
+            // Not working for windows because chmod is ignored on windows
+            if(substr(sprintf('%o', fileperms($filename)), -4)=="0700"){
+
+            return "Permissions Changed";
+            }
+
+        }else{
+            return "File Extension Is Not Txt<br>";
+        }
+    }else{
+        return "This Is Directory And Only Files Allowed<br>";
+    }
+}
+// fopen("Result.txt","a");
+echo change_permissions("Elzero"); // This Is Directory And Only Files Allowed
+echo change_permissions("Work.docx"); // File Extension Is Not Txt
+echo change_permissions("Result.txt"); // Permissions Changed
 echo '<br>***********************************************<br>';
 /********************************************************** */
 /** 
